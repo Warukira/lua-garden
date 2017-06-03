@@ -3,9 +3,9 @@
 
 A solar-powered environmental data collector, based on ESP8266 SoC.
 
-![Image of ESP8266](images/ESP8266.jsp)
+![Image of ESP8266](images/ESP8266.jpg)
 
-## BoM
+## Bill of Materials
 
 * [ESP8266 module](http://www.ebay.co.uk/itm/1PCS-NodeMcu-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266-module/191737348230) - £2.71
 * [TSL2561 Lux sensor](http://www.ebay.co.uk/itm/262905196196) - £1.38
@@ -64,7 +64,6 @@ Upload it with:
     Transferring credentials.lua as credentials.lua
     Transferring init.lua as init.lua
     All done!
-
 
 ## Connecting using `screen`
 
