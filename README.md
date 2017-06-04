@@ -18,7 +18,7 @@ A solar-powered environmental data collector, based on ESP8266 SoC.
 
 ## Tools
 
-For macOS host, install the [CH340G driver](driver/CH34x) first.
+For macOS host, install the [CH340G driver](drivers/CH34x) first.
 
 Install [esptool](https://github.com/espressif/esptool) _(A Python-based, open
 source, platform independent, utility to communicate with the ROM bootloader
