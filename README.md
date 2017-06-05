@@ -18,23 +18,53 @@ A solar-powered environmental data collector, based on ESP8266 SoC.
 
 ## Tools
 
-For macOS host, install the [CH340G driver](drivers/CH34x) first.
-
 Install [esptool](https://github.com/espressif/esptool) _(A Python-based, open
 source, platform independent, utility to communicate with the ROM bootloader
-in Espressif ESP8266.)_ and [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader)
+in Espressif ESP8266)_ and [nodemcu-uploader](https://github.com/kmpm/nodemcu-uploader)
 _(A simple tool for uploading files to the filesystem of an ESP8266 running
-NodeMCU as well as some other useful commands.)_
+NodeMCU as well as some other useful commands)_.
 
-    $ sudo -H pip install esptool nodemcu-uploader
+    $ sudo -H pip install esptool nodemcu-uploader wrapt
+
+### macOS
+
+For macOS host, install the [CH340G driver](drivers/CH34x) before proceeding.
+A reboot will be required. Plugging in the ESP8266, and it should
+appear as a device as **/dev/tty.wchusbserial1410**.
+
+### Ubuntu
+
+Support for the CH34x chipset is already built into the kernel, so you
+should see `dmesg` report the following when plugged in:
+
+```
+[ 5567.136984] usb 3-6: new full-speed USB device number 11 using xhci_hcd
+[ 5567.278374] usb 3-6: New USB device found, idVendor=1a86, idProduct=7523
+[ 5567.278379] usb 3-6: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[ 5567.278382] usb 3-6: Product: USB2.0-Serial
+[ 5567.313372] usbcore: registered new interface driver usbserial
+[ 5567.313409] usbcore: registered new interface driver usbserial_generic
+[ 5567.313439] usbserial: USB Serial support registered for generic
+[ 5567.315328] usbcore: registered new interface driver ch341
+[ 5567.315347] usbserial: USB Serial support registered for ch341-uart
+[ 5567.315366] ch341 3-6:1.0: ch341-uart converter detected
+[ 5567.315905] usb 3-6: ch341-uart converter now attached to ttyUSB0
+```
+
+The device will appear as **/dev/ttyUSB0**, however it has group permissions of
+'dialout', so run the following at the command line:
+
+    $ sudo usermod -a -G dialout <YOUR_USER_ID>
+
+Log out and restart your session.
 
 ## Firmware
 
-Nodemcu-build.com was used to build the firmware against the master branch and
+[nodemcu-build.com](nodemcu-build.com] was used to build the firmware against the master branch and
 includes the following modules: bme280, file, gpio, http, i2c, net, node, tmr,
 uart, wifi.
 
-Upload the firmware with :
+Upload the firmware with (substituting the correct USB device name):
 
     $ esptool.py --port /dev/tty.wchusbserial1410 write_flash -fm dio 0x00000 firmware/nodemcu-float.bin
     esptool.py v1.3
@@ -73,7 +103,6 @@ Connect to nodemcu using:
 
 Hit the reset button, and you should see console messages displayed to the
 terminal as follows:
-
 
     NodeMCU custom build by frightanic.com
             branch: master
