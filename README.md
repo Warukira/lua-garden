@@ -60,7 +60,7 @@ Log out and restart your session.
 
 ## Firmware
 
-[nodemcu-build.com](nodemcu-build.com] was used to build the firmware against the master branch and
+[nodemcu-build.com](nodemcu-build.com) was used to build the firmware against the master branch and
 includes the following modules: bme280, file, gpio, http, i2c, net, node, tmr,
 uart, wifi.
 
