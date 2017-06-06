@@ -109,17 +109,17 @@ terminal as follows:
             branch: master
             commit: c8ac5cfb912ff206b03dd7c60ffbb2dafb83fe5e
             SSL: false
-            modules: bme280,file,gpio,http,i2c,net,node,tmr,uart,wifi
-     build  built on: 2017-06-03 21:43
+            modules: adc,bme280,file,gpio,http,i2c,net,node,tmr,uart,wifi
+     build  built on: 2017-06-06 17:10
      powered by Lua 5.1.4 on SDK 2.1.0(116b762)
     Connecting to WiFi access point...
-    Connection to AP(xxxx-xxx-xxx) established!
+    Connection to AP(XXXX-XXX-XXX) established!
     Waiting for IP address...
     Wifi connection is ready! IP address is: 192.168.1.110
     Startup will resume momentarily, you have 3 seconds to abort.
     Waiting...
     Running
-
+    System voltage (mV):    2984
     >
 
 To exit out of screen, press `CTRL-A-\`.
