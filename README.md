@@ -61,8 +61,9 @@ Log out and restart your session.
 ## Firmware
 
 [nodemcu-build.com](https://nodemcu-build.com) was used to build the firmware against the master branch and
-includes the following modules: bme280, file, gpio, http, i2c, net, node, tmr,
-uart, wifi.
+includes the following modules: adc, bme280, file, gpio, http, i2c, net, node,
+tmr, uart, wifi.
+
 
 Upload the firmware with (substituting the correct USB device name):
 
