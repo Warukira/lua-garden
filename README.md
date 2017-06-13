@@ -1,7 +1,8 @@
 # Lua-garden
 
 
-A solar-powered environmental data collector, based on ESP8266 SoC.
+A solar-powered environmental data collector, based on ESP8266 SoC. Results are uploaded
+to a [ThinkSpeak](https://thingspeak.com/) channel.
 
 ![Image of ESP8266](images/ESP8266.jpg)
 
@@ -9,12 +10,22 @@ A solar-powered environmental data collector, based on ESP8266 SoC.
 
 * [ESP8266 module](http://www.ebay.co.uk/itm/1PCS-NodeMcu-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266-module/191737348230) - £2.71
 * [TSL2561 Lux sensor](http://www.ebay.co.uk/itm/262905196196) - £1.38
-* [BME280 Temp, humidity and pressure sensor](https://www.aliexpress.com/item/GY-BME280-3-3-precision-altimeter-atmospheric-pressure-BME280-sensor-module/32711703783.html?ws_ab_test=searchweb0_0,searchweb201602_2_10152_10065_10151_10130_10068_10136_10137_10060_10138_10155_10062_437_10154_10056_10055_10054_10059_303_100031_10099_10103_10102_10096_10052_10053_10107_10050_10142_10051_10084_10083_10119_10080_10082_10081_10110_519_10111_10112_10113_10114_10179_10182_10185_10184_10078_10079_10073_10123_10120_10189_142-10050_10111,searchweb201603_16,ppcSwitch_5&btsid=2653157b-984b-4fc3-825e-9cbc83cf1f68&algo_expid=c4c8e552-1e27-41ab-bf71-8d67d3c1c03b-19&algo_pvid=c4c8e552-1e27-41ab-bf71-8d67d3c1c03b) - £2.49
+* [BME280 Temp, humidity and pressure sensor](https://www.aliexpress.com/item/GY-BME280-3-3-precision-altimeter-atmospheric-pressure-BME280-sensor-module/32711703783.html) - £2.49
+* [ADS11115 Analogue-digital converter](https://www.aliexpress.com/item/16-Bit-I2C-4-CH-ADS1115-ADS1015-Module-ADC-Development-Board/32761329492.html) - £1.52
 * [Rain sensor](https://www.aliexpress.com/item/1set-lot-Snow-Raindrops-Detection-Sensor-Module-Rain-Weather-Module-Humidity-For-Arduino/32711871234.html) - £0.43
 * [Soil hygrometer](http://www.ebay.co.uk/itm/3PCS-Soil-Hygrometer-Detection-Module-Soil-Moisture-Sensor-For-arduino-Smart-car-/311732225358) - £1.38
 * [Solar LiPo charger](https://www.aliexpress.com/item/Elecrow-Mini-Solar-Lipo-Charger-Board-CN3065-Lithium-Battery-Charge-Chip-DIY-Outdoor-Application-Kit-Charging/32808069239.html) - £2.71
 * [3.7V 1000Mah LiPo battery](https://www.aliexpress.com/item/Upgrade-RC-Part-7-4V-650mAh-Lipo-Battery-H8C-10-650-for-JJRC-H8C-DFD-F183/32459323188.html) - £3.86
 * [6V 1W Solar panel](https://www.aliexpress.com/item/Mini-6V-1W-Solar-Power-Panel-Solar-System-Module-DIY-For-Cell-Phone-Chargers/32763434119.html) - £0.84
+
+## ThinkSpeak Setup
+
+Create an account on [thinkspeak.com](https://thingspeak.com/users/sign_up).
+
+Then create a channel with the following fields in order:
+* Vdd
+
+Make a note of the channel ID and the 'Write API key' (this will be required later).
 
 ## Tools
 
@@ -82,7 +93,8 @@ First, create a file called _src/credentials.lua_ with the following content:
 
 ```lua
 SSID = "Your WiFi Access Points SSID"
-PASSWORD = "Your access point password"
+WIFI_PASSWORD = "Your access point password"
+THINGSPEAK_API_KEY "Your ThingSpeek Write API key"
 ```
 
 If present in the root file system, the `init.lua` file will execute first.
@@ -131,7 +143,7 @@ To exit out of screen, press `CTRL-A-\`.
 * https://blog.sengotta.net/signed-mac-os-driver-for-winchiphead-ch340-serial-bridge/
 * https://github.com/espressif/esptool
 * https://github.com/kmpm/nodemcu-uploader
-*
+* https://www.thingspeak.com
 
 ## License
 
