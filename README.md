@@ -18,6 +18,10 @@ to a [ThinkSpeak](https://thingspeak.com/) channel.
 * [3.7V 1000Mah LiPo battery](https://www.aliexpress.com/item/Upgrade-RC-Part-7-4V-650mAh-Lipo-Battery-H8C-10-650-for-JJRC-H8C-DFD-F183/32459323188.html) - £3.86
 * [6V 1W Solar panel](https://www.aliexpress.com/item/Mini-6V-1W-Solar-Power-Panel-Solar-System-Module-DIY-For-Cell-Phone-Chargers/32763434119.html) - £0.84
 
+## NodeMCU pinouts
+
+![Pinouts](images/NodeMCU_Pinout.png)
+
 ## ThinkSpeak Setup
 
 Create an account on [thinkspeak.com](https://thingspeak.com/users/sign_up).
@@ -94,7 +98,7 @@ First, create a file called _src/credentials.lua_ with the following content:
 ```lua
 SSID = "Your WiFi Access Points SSID"
 WIFI_PASSWORD = "Your access point password"
-THINGSPEAK_API_KEY "Your ThingSpeek Write API key"
+THINGSPEAK_API_KEY = "Your ThingSpeak Write API key"
 ```
 
 If present in the root file system, the `init.lua` file will execute first.
