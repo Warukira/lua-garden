@@ -138,10 +138,16 @@ terminal as follows:
     System voltage (mV):    2984
     >
 
-To exit out of screen, press `CTRL-A-\`.
+To exit out of screen, press `CTRL-A-\`. Occasionally the terminal may go insane after
+using screen, so reset the terminal with:
+
+```
+$ stty sane
+```
 
 ## References
 
+* http://espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf
 * http://nodemcu.readthedocs.io/en/master/
 * https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-nodemcu-lua
 * https://blog.sengotta.net/signed-mac-os-driver-for-winchiphead-ch340-serial-bridge/
