@@ -1,15 +1,14 @@
--- load credentials, 'SSID' and 'PASSWORD' declared and initialize in there
+-- load credentials, 'SSID' and 'WIFI_PASSWORD' declared and initialize in there
 dofile("credentials.lua")
 
 function startup()
-    if file.open("init.lua") == nil then
-        print("init.lua deleted or renamed")
-    else
-        print("Running")
-        file.close("init.lua")
-        -- the actual application is stored in 'application.lua'
-        dofile("application.lua")
-    end
+  if file.open("init.lua") == nil then
+    print("init.lua deleted or renamed")
+  else
+    print("Running application")
+    file.close("init.lua")
+    dofile("application.lua")
+  end
 end
 
 -- Define WiFi station event callbacks
@@ -23,8 +22,7 @@ wifi_got_ip_event = function(T)
   -- Note: Having an IP address does not mean there is internet access!
   -- Internet connectivity can be determined with net.dns.resolve().
   print("Wifi connection is ready! IP address is: "..T.IP)
-  print("Startup will resume momentarily, you have 3 seconds to abort.")
-  print("Waiting...")
+  print("Startup will resume momentarily, you have 3 seconds to abort...")
   tmr.create():alarm(3000, tmr.ALARM_SINGLE, startup)
 end
 
@@ -67,5 +65,10 @@ wifi.eventmon.register(wifi.eventmon.STA_DISCONNECTED, wifi_disconnect_event)
 
 print("Connecting to WiFi access point...")
 wifi.setmode(wifi.STATION)
-wifi.sta.config({ssid=SSID, pwd=PASSWORD, save=true})
+wifi.sta.config({ssid=SSID, pwd=WIFI_PASSWORD, save=true})
 -- wifi.sta.connect() not necessary because config() uses auto-connect=true by default
+
+print("Setting DNS servers (google)")
+net.dns.setdnsserver("8.8.8.8", 0)
+net.dns.setdnsserver("8.8.4.4", 1)
+
