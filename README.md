@@ -27,7 +27,11 @@ to a [ThinkSpeak](https://thingspeak.com/) channel.
 Create an account on [thinkspeak.com](https://thingspeak.com/users/sign_up).
 
 Then create a channel with the following fields in order:
-* Vdd
+* System Voltage (Vdd)
+* Temperature (°C)
+* Humidity (% rH)
+* Pressure (hPa)
+* Lux (lx)
 
 Make a note of the channel ID and the 'Write API key' (this will be required later).
 
