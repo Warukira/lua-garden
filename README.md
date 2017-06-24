@@ -91,6 +91,16 @@ Upload the firmware with (substituting the correct USB device name):
     Wrote 434176 bytes at 0x0 in 37.7 seconds (92.2 kbit/s)...
     Leaving...
 
+## Pinouts
+
+* D0 (GPIO16) <--> RST (to enable the wakeup from deep sleep)
+* D3 (GPIO0) <--> I2C SDA (data)
+* D4 (GPIO2) <--> I2C SCL (clock)
+* 3V <--> Vdd (power)
+* GND <--> GND (ground)
+
+Add 4.7K (or 10L) pull-up resistors to 3V3 on the SDA and SCL pins.
+
 ## Uploading code
 
 First, create a file called _src/credentials.lua_ with the following content:
