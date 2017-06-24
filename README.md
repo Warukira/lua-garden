@@ -102,7 +102,7 @@ Upload the firmware with (substituting the correct USB device name):
 * 3V <--> Vdd (power)
 * GND <--> GND (ground)
 
-Add 4.7K (or 10L) pull-up resistors to 3V3 on the SDA and SCL pins.
+Add 4.7K (or 10K) pull-up resistors to 3V3 on the SDA and SCL pins.
 
 ## Uploading code
 
@@ -121,6 +121,7 @@ Upload it with:
     $ nodemcu-uploader --port /dev/tty.wchusbserial1410 upload *.lua
     opening port /dev/tty.wchusbserial1410 with 115200 baud
     Preparing esp for transfer.
+    Transferring application.lua as application.lua
     Transferring credentials.lua as credentials.lua
     Transferring init.lua as init.lua
     All done!
