@@ -76,9 +76,8 @@ Log out and restart your session.
 ## Firmware
 
 [nodemcu-build.com](https://nodemcu-build.com) was used to build the firmware against the master branch and
-includes the following modules: adc, bme280, file, gpio, http, i2c, net, node,
-tmr, uart, wifi.
-
+includes the following modules: adc, ads1115, bme280, file, gpio, http, i2c,
+net, node, sjson, tmr, tsl2561, uart, wifi.
 
 Upload the firmware with (substituting the correct USB device name):
 
@@ -135,8 +134,8 @@ terminal as follows:
             branch: master
             commit: c8ac5cfb912ff206b03dd7c60ffbb2dafb83fe5e
             SSL: false
-            modules: adc,bme280,file,gpio,http,i2c,net,node,tmr,uart,wifi
-     build  built on: 2017-06-06 17:10
+            modules: adc,ads1115,bme280,file,gpio,http,i2c,net,node,sjson,tmr,tsl2561,uart,wifi
+     build  built on: 2017-06-24 17:51
      powered by Lua 5.1.4 on SDK 2.1.0(116b762)
     Connecting to WiFi access point...
     Connection to AP(XXXX-XXX-XXX) established!
